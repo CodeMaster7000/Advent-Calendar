@@ -1,6 +1,5 @@
 import tkinter as tk
 from datetime import datetime
-
 class AdventCalendarApp:
     def __init__(self, root):
         self.root = root
@@ -35,18 +34,15 @@ class AdventCalendarApp:
             "Plan a small act of kindness for someone else.",
         ]
         self.show_message()
-
     def show_message(self, day=None):
         if day is None or day < 1 or day > len(self.messages):
             self.message_label.config(text="Welcome to your Advent Calendar!")
         else:
             self.message_label.config(text=f"Day {day}\n{self.messages[day - 1]}")
-
     def update_calendar(self):
         today = datetime.today().date()
         current_day_in_december = today.day
         self.show_message(current_day_in_december)
-
 if __name__ == "__main__":
     root = tk.Tk()
     app = AdventCalendarApp(root)
